@@ -88,14 +88,27 @@
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 
 <script>
-  // Firebase configuration
-  const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBK5Hdc5AMtXqYEy1Zd2kyhUIhRAALadEA",
+  authDomain: "mylife-19882.firebaseapp.com",
+  projectId: "mylife-19882",
+  storageBucket: "mylife-19882.firebasestorage.app",
+  messagingSenderId: "414506839863",
+  appId: "1:414506839863:web:b7dcd7469b4b29e7d7f4b2",
+  measurementId: "G-5S207R8QX0"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
   };
 
   // Initialize Firebase
@@ -135,3 +148,4 @@
 
 </body>
 </html>
+
