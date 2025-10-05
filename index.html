@@ -73,31 +73,73 @@ body {
   margin: 8px 0;
 }
 
-/* Bottom row layout */
+/* YouTube link box */
+.youtube-link {
+  text-align: center;
+  background: rgba(0,0,0,0.8);
+  border: 2px solid hotpink;
+  box-shadow: 0 0 10px hotpink;
+  padding: 10px;
+  margin: 20px auto 10px auto;
+  max-width: 400px;
+}
+
+.youtube-link a {
+  color: #ff00ff;
+  text-shadow: 0 0 6px hotpink;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.youtube-link a:hover {
+  color: white;
+  text-shadow: 0 0 8px #ff00ff;
+}
+
+/* Buttons box */
+.buttons-box {
+  text-align: center;
+  background: rgba(0,0,0,0.8);
+  border: 2px solid #ff0000;
+  box-shadow: 0 0 10px #ff0000;
+  padding: 10px;
+  margin: 0 auto 20px auto;
+  max-width: 500px;
+}
+
+.buttons-box a {
+  display: inline-block;
+  background: rgba(255,0,0,0.8);
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+  margin: 5px;
+  border-radius: 6px;
+  box-shadow: 0 0 8px #ff0000;
+}
+
+.buttons-box a:hover {
+  background: #ff0000;
+  color: white;
+}
+
+/* Bottom row: Interests + Music + Spotify */
 .bottom-row {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
   gap: 20px;
-  margin: 30px 20px;
   flex-wrap: wrap;
+  margin: 0 20px 30px 20px;
 }
 
-.right-column {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  min-width: 300px;
-}
-
-/* Boxes */
 .box {
   background: rgba(0,0,0,0.8);
   border: 2px solid #ff0000;
   box-shadow: 0 0 10px #ff0000;
   padding: 15px;
-  flex: 1;
   min-width: 250px;
+  flex: 1;
 }
 
 .interests h3, .music-box h3 {
@@ -125,6 +167,7 @@ body {
   padding: 10px;
   box-shadow: 0 0 10px hotpink;
   text-align: center;
+  margin-top: 15px;
 }
 
 .music-box p {
@@ -142,54 +185,6 @@ body {
   height: 380px;
 }
 
-/* YouTube Link */
-.youtube-link {
-  text-align: center;
-  background: rgba(0,0,0,0.8);
-  border: 2px solid hotpink;
-  box-shadow: 0 0 10px hotpink;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-.youtube-link a {
-  color: #ff00ff;
-  text-shadow: 0 0 6px hotpink;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.youtube-link a:hover {
-  color: white;
-  text-shadow: 0 0 8px #ff00ff;
-}
-
-/* Buttons box */
-.buttons-box {
-  text-align: center;
-  background: rgba(0,0,0,0.8);
-  border: 2px solid #ff0000;
-  box-shadow: 0 0 10px #ff0000;
-  padding: 10px;
-}
-
-.buttons-box a {
-  display: inline-block;
-  background: rgba(255,0,0,0.8);
-  color: black;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 8px 12px;
-  margin: 5px;
-  border-radius: 6px;
-  box-shadow: 0 0 8px #ff0000;
-}
-
-.buttons-box a:hover {
-  background: #ff0000;
-  color: white;
-}
-
 /* Footer */
 .footer {
   text-align: center;
@@ -203,9 +198,6 @@ body {
   .bottom-row {
     flex-direction: column;
     align-items: center;
-  }
-  .right-column {
-    width: 90%;
   }
 }
 </style>
@@ -233,43 +225,41 @@ body {
   </div>
 </div>
 
-<!-- Bottom row -->
+<!-- YouTube Link -->
+<div class="youtube-link">
+  <a href="https://www.youtube.com/@ElectroBOOM" target="_blank">Fav YouTuber rn</a>
+</div>
+
+<!-- Buttons Box -->
+<div class="buttons-box">
+  <a href="page1.html">Page 1</a>
+  <a href="page2.html">Page 2</a>
+  <a href="page3.html">Page 3</a>
+</div>
+
+<!-- Bottom Row: Interests + Music + Spotify -->
 <div class="bottom-row">
-  <div class="right-column">
 
-    <!-- YouTube link -->
-    <div class="youtube-link">
-      <a href="https://www.youtube.com/@ElectroBOOM" target="_blank">Fav YouTuber rn</a>
+  <!-- Interests Box -->
+  <div class="box interests">
+    <h3>⚡ Interests ⚡</h3>
+    <p class="metal">Metal 🤘</p>
+    <p class="punk">Punk 🖤</p>
+    <p class="games">Games 🎮</p>
+    <p class="tech">Oldschool Tech 💾</p>
+
+    <!-- Music Box -->
+    <div class="music-box">
+      <h3>Music</h3>
+      <p>⚡ Slipknot<br>⚡ Pantera<br>⚡ Misfits<br>⚡ Nirvana<br>⚡ And a bunch moree</p>
     </div>
-
-    <!-- Buttons box -->
-    <div class="buttons-box">
-      <a href="page1.html">Page 1</a>
-      <a href="page2.html">Page 2</a>
-      <a href="page3.html">Page 3</a>
-    </div>
-
-    <!-- Interests Box -->
-    <div class="box interests">
-      <h3>⚡ Interests ⚡</h3>
-      <p class="metal">Metal 🤘</p>
-      <p class="punk">Punk 🖤</p>
-      <p class="games">Games 🎮</p>
-      <p class="tech">Oldschool Tech 💾</p>
-
-      <!-- Music Box -->
-      <div class="music-box">
-        <h3>Music</h3>
-        <p>⚡ Slipknot<br>⚡ Pantera<br>⚡ Misfits<br>⚡ Nirvana<br>⚡ And a bunch moree</p>
-      </div>
-    </div>
-
-    <!-- Spotify Box -->
-    <div class="box spotify-box">
-      <iframe src="https://open.spotify.com/embed/playlist/16Q1EiWg3w8S9VcPnXQqwc?utm_source=generator" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </div>
-
   </div>
+
+  <!-- Spotify Box -->
+  <div class="box spotify-box">
+    <iframe src="https://open.spotify.com/embed/playlist/16Q1EiWg3w8S9VcPnXQqwc?utm_source=generator" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+
 </div>
 
 <div class="footer">
