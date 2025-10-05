@@ -89,7 +89,7 @@ body {
   background: rgba(255,0,0,0.1);
 }
 
-/* Bottom Flex: Interests + YouTube + Music + Spotify */
+/* Bottom Flex */
 .bottom-flex {
   display: flex;
   justify-content: flex-start;
@@ -104,7 +104,7 @@ body {
   border: 2px solid #ff0000;
   box-shadow: 0 0 10px #ff0000;
   padding: 15px;
-  width: 250px;
+  width: 220px; /* uniform width for all boxes */
   min-width: 200px;
   text-align: center;
 }
@@ -117,6 +117,7 @@ body {
   margin-top: 0;
 }
 
+/* Interests */
 .interests p {
   margin: 5px 0;
 }
@@ -125,11 +126,13 @@ body {
 .interests .games { color: #ffff00; text-shadow: 0 0 6px yellow; }
 .interests .tech { color: #ff9900; text-shadow: 0 0 6px orange; }
 
+/* Music Box */
 .music-box p {
   color: #ff00ff;
   text-shadow: 0 0 6px hotpink;
 }
 
+/* YouTube Button Box */
 .youtube-box a {
   display: block;
   background: rgba(0,0,0,0.7);
@@ -149,7 +152,7 @@ body {
 /* Spotify */
 .spotify-box iframe {
   border-radius: 12px;
-  width: 250px;
+  width: 220px;
   height: 352px;
 }
 
@@ -204,13 +207,13 @@ body {
     <p class="tech">Oldschool Tech 💾</p>
   </div>
 
-  <div class="box youtube-box">
-    <a href="https://www.youtube.com/@ElectroBOOM" target="_blank">Fav youtuber rn</a>
-  </div>
-
   <div class="box music-box">
     <h3>Music</h3>
     <p>⚡ Slipknot<br>⚡ Pantera<br>⚡ Misfits<br>⚡ Nirvana<br>⚡ And a bunch moree</p>
+  </div>
+
+  <div class="box youtube-box">
+    <a href="https://www.youtube.com/@ElectroBOOM" target="_blank">Fav youtuber rn</a>
   </div>
 
   <div class="box spotify-box">
