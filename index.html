@@ -67,7 +67,7 @@ body {
   margin: 5px 0;
 }
 
-/* --- Bottom Flex: Interests + Music + Spotify --- */
+/* --- Bottom Flex: Music + Spotify --- */
 .bottom-flex {
   display: flex;
   justify-content: flex-start;
@@ -95,14 +95,9 @@ body {
   margin-top: 0;
 }
 
-.interests p {
-  text-shadow: 0 0 6px;
-  font-weight: bold;
+.box p {
+  margin: 0;
 }
-.interests .metal { color: #ff00ff; text-shadow: 0 0 6px hotpink; }
-.interests .punk { color: #00ffff; text-shadow: 0 0 6px cyan; }
-.interests .games { color: #ffff00; text-shadow: 0 0 6px yellow; }
-.interests .tech { color: #ff9900; text-shadow: 0 0 6px orange; }
 
 a {
   color: hotpink;
@@ -143,13 +138,6 @@ a:hover {
 }
 
 /* --- Music Box --- */
-.music-box {
-  background-color: black;
-  border: 2px solid hotpink;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
 .music-box h3 {
   color: #ff0000;
   text-transform: uppercase;
@@ -160,7 +148,6 @@ a:hover {
 .music-box p {
   color: #ff00ff;
   text-shadow: 0 0 6px hotpink;
-  margin: 0;
 }
 
 .footer {
@@ -203,19 +190,11 @@ a:hover {
   <a href="page3.html">Chat</a>
 </div>
 
-<!-- Interests + Music + Spotify -->
+<!-- Bottom Flex: Music + Spotify -->
 <div class="bottom-flex">
-  <div class="box interests">
-    <h3>⚡ Interests ⚡</h3>
-    <p class="metal">Metal 🤘</p>
-    <p class="punk">Punk 🖤</p>
-    <p class="games">Games 🎮</p>
-    <p class="tech">Oldschool Tech 💾</p>
-
-    <div class="music-box">
-      <h3>Music</h3>
-      <p>⚡ Slipknot<br>⚡ Pantera<br>⚡ Misfits<br>⚡ Nirvana<br>⚡ And a bunch moree</p>
-    </div>
+  <div class="box music-box">
+    <h3>Music</h3>
+    <p>⚡ Slipknot<br>⚡ Pantera<br>⚡ Misfits<br>⚡ Nirvana<br>⚡ And a bunch moree</p>
   </div>
 
   <div class="box spotify-box">
