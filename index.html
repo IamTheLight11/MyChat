@@ -41,9 +41,8 @@ body {
   box-shadow: 0 0 10px #ff0000;
 }
 
-/* --- About Me Box --- */
+/* About Me Box */
 .about-box {
-  position: relative;
   background: rgba(0,0,0,0.7);
   border: 2px solid #ff0000;
   box-shadow: 0 0 10px #ff0000;
@@ -63,52 +62,10 @@ body {
 .about-box p {
   font-size: 14px;
   line-height: 1.6;
-  text-align: center;
   margin: 5px 0;
 }
 
-/* --- Bottom Flex: Music + YouTube Button + Spotify --- */
-.bottom-flex {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 20px;
-  margin: 20px;
-  flex-wrap: wrap;
-}
-
-.box {
-  background: rgba(0,0,0,0.7);
-  border: 2px solid #ff0000;
-  box-shadow: 0 0 10px #ff0000;
-  padding: 15px;
-  width: 300px;
-  min-width: 250px;
-}
-
-.box h3 {
-  color: #ff0000;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-align: center;
-  text-shadow: 0 0 8px #ff0000;
-  margin-top: 0;
-}
-
-.box p {
-  margin: 0;
-}
-
-a {
-  color: hotpink;
-  text-decoration: none;
-}
-a:hover {
-  color: white;
-  text-shadow: 0 0 6px hotpink;
-}
-
-/* --- Buttons Box --- */
+/* Buttons */
 .buttons-box {
   display: flex;
   justify-content: center;
@@ -124,63 +81,90 @@ a:hover {
   text-transform: uppercase;
   font-weight: bold;
   text-align: center;
+  color: hotpink;
+  text-decoration: none;
 }
 
 .buttons-box a:hover {
   background: rgba(255,0,0,0.1);
 }
 
-/* --- Spotify Box --- */
-.spotify-box iframe {
-  border-radius: 12px;
-  width: 300px;
-  height: 352px;
+/* Bottom Flex: Interests + YouTube + Music + Spotify */
+.bottom-flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+  margin: 20px;
+  flex-wrap: wrap;
 }
 
-/* --- Music Box --- */
-.music-box h3 {
+.box {
+  background: rgba(0,0,0,0.7);
+  border: 2px solid #ff0000;
+  box-shadow: 0 0 10px #ff0000;
+  padding: 15px;
+  width: 250px;
+  min-width: 200px;
+  text-align: center;
+}
+
+.box h3 {
   color: #ff0000;
   text-transform: uppercase;
+  letter-spacing: 2px;
   text-shadow: 0 0 8px #ff0000;
-  margin: 0 0 5px 0;
+  margin-top: 0;
 }
+
+.interests p {
+  margin: 5px 0;
+}
+.interests .metal { color: #ff00ff; text-shadow: 0 0 6px hotpink; }
+.interests .punk { color: #00ffff; text-shadow: 0 0 6px cyan; }
+.interests .games { color: #ffff00; text-shadow: 0 0 6px yellow; }
+.interests .tech { color: #ff9900; text-shadow: 0 0 6px orange; }
 
 .music-box p {
   color: #ff00ff;
   text-shadow: 0 0 6px hotpink;
 }
 
-/* --- Footer --- */
-.footer {
-  text-align: center;
-  font-size: 12px;
-  color: #999;
-  margin-top: 20px;
-}
-
-/* --- YouTube Button as a box --- */
 .youtube-box a {
   display: block;
   background: rgba(0,0,0,0.7);
   border: 2px solid hotpink;
   box-shadow: 0 0 10px hotpink;
   color: hotpink;
-  text-align: center;
+  text-decoration: none;
   text-transform: uppercase;
   font-weight: bold;
   padding: 15px;
-  width: 200px;
-  text-decoration: none;
 }
 
 .youtube-box a:hover {
   background: rgba(255,0,255,0.1);
 }
+
+/* Spotify */
+.spotify-box iframe {
+  border-radius: 12px;
+  width: 250px;
+  height: 352px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+  margin-top: 20px;
+}
 </style>
 </head>
 <body>
 
-<!-- Top images and text -->
+<!-- Top Images -->
 <div class="top-flex">
   <img src="https://ontarioflagandpole.com/wp-content/uploads/2017/10/poland-eagle.jpg" alt="Polish Eagle">
   <p class="neon-text">ZWYCIĘSTWO POLSKI ✊✊</p>
@@ -198,27 +182,35 @@ a:hover {
     <i>Living loud, living proud.</i><br>
     <span style="color: #ff9900; text-shadow: 0 0 6px #ff9900;">// Punk • Metal • Chaos //</span>
   </p>
-  <div style="margin-top: 20px; border-top: 1px dashed #666; padding-top: 10px; text-align: center;">
+  <div style="margin-top: 20px; border-top: 1px dashed #666; padding-top: 10px;">
     <b>🖕 ⋆♱✮♱⋆ 🖤</b>
   </div>
 </div>
 
-<!-- Buttons -->
+<!-- Main Buttons -->
 <div class="buttons-box">
   <a href="page1.html">Vids/Pics</a>
   <a href="page2.html">Rambles</a>
   <a href="page3.html">Chat</a>
 </div>
 
-<!-- Bottom Flex: Music | YouTube Button | Spotify -->
+<!-- Bottom Boxes -->
 <div class="bottom-flex">
-  <div class="box music-box">
-    <h3>Music</h3>
-    <p>⚡ Slipknot<br>⚡ Pantera<br>⚡ Misfits<br>⚡ Nirvana<br>⚡ And a bunch moree</p>
+  <div class="box interests">
+    <h3>⚡ Interests ⚡</h3>
+    <p class="metal">Metal 🤘</p>
+    <p class="punk">Punk 🖤</p>
+    <p class="games">Games 🎮</p>
+    <p class="tech">Oldschool Tech 💾</p>
   </div>
 
   <div class="box youtube-box">
     <a href="https://www.youtube.com/@ElectroBOOM" target="_blank">Fav youtuber rn</a>
+  </div>
+
+  <div class="box music-box">
+    <h3>Music</h3>
+    <p>⚡ Slipknot<br>⚡ Pantera<br>⚡ Misfits<br>⚡ Nirvana<br>⚡ And a bunch moree</p>
   </div>
 
   <div class="box spotify-box">
