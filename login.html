@@ -77,51 +77,43 @@
   <input id="email" type="email" placeholder="Email">
   <input id="password" type="password" placeholder="Password">
   <div>
-    <button onclick="signup()">Sign Up</button>
-    <button onclick="login()">Log In</button>
+    <button id="signup-btn">Sign Up</button>
+    <button id="login-btn">Log In</button>
   </div>
   <p id="auth-message"></p>
 </div>
 
-<!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<!-- Firebase SDKs (modular v9+) -->
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
 
-<script>
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyBK5Hdc5AMtXqYEy1Zd2kyhUIhRAALadEA",
-  authDomain: "mylife-19882.firebaseapp.com",
-  projectId: "mylife-19882",
-  storageBucket: "mylife-19882.firebasestorage.app",
-  messagingSenderId: "414506839863",
-  appId: "1:414506839863:web:b7dcd7469b4b29e7d7f4b2",
-  measurementId: "G-5S207R8QX0"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBK5Hdc5AMtXqYEy1Zd2kyhUIhRAALadEA",
+    authDomain: "mylife-19882.firebaseapp.com",
+    projectId: "mylife-19882",
+    storageBucket: "mylife-19882.firebasestorage.app",
+    messagingSenderId: "414506839863",
+    appId: "1:414506839863:web:b7dcd7469b4b29e7d7f4b2",
+    measurementId: "G-5S207R8QX0"
   };
 
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const auth = getAuth();
 
   const messageEl = document.getElementById('auth-message');
 
-  function signup() {
+  // Sign Up
+  document.getElementById('signup-btn').addEventListener('click', () => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    auth.createUserWithEmailAndPassword(email, password)
+    createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
         messageEl.textContent = "Account created! Redirecting...";
         setTimeout(() => { window.location.href = "index.html"; }, 1000);
@@ -129,13 +121,14 @@ const analytics = getAnalytics(app);
       .catch((error) => {
         messageEl.textContent = error.message;
       });
-  }
+  });
 
-  function login() {
+  // Log In
+  document.getElementById('login-btn').addEventListener('click', () => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    auth.signInWithEmailAndPassword(email, password)
+    signInWithEmailAndPassword(auth, email, password)
       .then(() => {
         messageEl.textContent = "Logged in! Redirecting...";
         setTimeout(() => { window.location.href = "index.html"; }, 1000);
@@ -143,9 +136,8 @@ const analytics = getAnalytics(app);
       .catch((error) => {
         messageEl.textContent = error.message;
       });
-  }
+  });
 </script>
 
 </body>
 </html>
-
