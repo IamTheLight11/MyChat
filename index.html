@@ -67,7 +67,7 @@ body {
   margin: 5px 0;
 }
 
-/* --- Bottom Flex: Music + Spotify --- */
+/* --- Bottom Flex: Music + YouTube Button + Spotify --- */
 .bottom-flex {
   display: flex;
   justify-content: flex-start;
@@ -150,11 +150,31 @@ a:hover {
   text-shadow: 0 0 6px hotpink;
 }
 
+/* --- Footer --- */
 .footer {
   text-align: center;
   font-size: 12px;
   color: #999;
   margin-top: 20px;
+}
+
+/* --- YouTube Button as a box --- */
+.youtube-box a {
+  display: block;
+  background: rgba(0,0,0,0.7);
+  border: 2px solid hotpink;
+  box-shadow: 0 0 10px hotpink;
+  color: hotpink;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 15px;
+  width: 200px;
+  text-decoration: none;
+}
+
+.youtube-box a:hover {
+  background: rgba(255,0,255,0.1);
 }
 </style>
 </head>
@@ -167,7 +187,7 @@ a:hover {
   <img src="https://preview.redd.it/qfcr91y57lh51.jpg?width=640&crop=smart&auto=webp&s=d4be368fa38cc2d79cfaf4b8b06562b93ecdb049" alt="Joe Working Man">
 </div>
 
-<!-- About Me (full width) -->
+<!-- About Me -->
 <div class="about-box">
   <h2>☠ WELCOME TO MY PAGE ☠</h2>
   <p>
@@ -190,11 +210,15 @@ a:hover {
   <a href="page3.html">Chat</a>
 </div>
 
-<!-- Bottom Flex: Music + Spotify -->
+<!-- Bottom Flex: Music | YouTube Button | Spotify -->
 <div class="bottom-flex">
   <div class="box music-box">
     <h3>Music</h3>
     <p>⚡ Slipknot<br>⚡ Pantera<br>⚡ Misfits<br>⚡ Nirvana<br>⚡ And a bunch moree</p>
+  </div>
+
+  <div class="box youtube-box">
+    <a href="https://www.youtube.com/@ElectroBOOM" target="_blank">Fav youtuber rn</a>
   </div>
 
   <div class="box spotify-box">
