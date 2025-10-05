@@ -67,7 +67,7 @@ body {
   margin: 5px 0;
 }
 
-/* --- Bottom Flex: Interests + Spotify --- */
+/* --- Bottom Flex: Interests + Music + Spotify --- */
 .bottom-flex {
   display: flex;
   justify-content: flex-start;
@@ -142,6 +142,27 @@ a:hover {
   height: 352px;
 }
 
+/* --- Music Box --- */
+.music-box {
+  background-color: black;
+  border: 2px solid hotpink;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.music-box h3 {
+  color: #ff0000;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px #ff0000;
+  margin: 0 0 5px 0;
+}
+
+.music-box p {
+  color: #ff00ff;
+  text-shadow: 0 0 6px hotpink;
+  margin: 0;
+}
+
 .footer {
   text-align: center;
   font-size: 12px;
@@ -162,12 +183,14 @@ a:hover {
 <!-- About Me (full width) -->
 <div class="about-box">
   <h2>☠ WELCOME TO MY PAGE ☠</h2>
-  <p><b>est. 2025</b><br>
+  <p>
+    <b>est. 2025</b><br>
     <span style="color: #ff0000; text-shadow: 0 0 8px #ff0000; font-weight: bold;">Made by IamTheLight11</span><br>
-  <b>True till death.</b><br>
-  <i>Keep my friends close, keep my enemies closer.</i><br>
-  <i>Living loud, living proud.</i><br>
-  <span style="color: #ff9900; text-shadow: 0 0 6px #ff9900;">// Punk • Metal • Chaos //</span></p>
+    <b>True till death.</b><br>
+    <i>Keep my friends close, keep my enemies closer.</i><br>
+    <i>Living loud, living proud.</i><br>
+    <span style="color: #ff9900; text-shadow: 0 0 6px #ff9900;">// Punk • Metal • Chaos //</span>
+  </p>
   <div style="margin-top: 20px; border-top: 1px dashed #666; padding-top: 10px; text-align: center;">
     <b>🖕 ⋆♱✮♱⋆ 🖤</b>
   </div>
@@ -180,7 +203,7 @@ a:hover {
   <a href="page3.html">Chat</a>
 </div>
 
-<!-- Interests + Spotify -->
+<!-- Interests + Music + Spotify -->
 <div class="bottom-flex">
   <div class="box interests">
     <h3>⚡ Interests ⚡</h3>
@@ -188,7 +211,13 @@ a:hover {
     <p class="punk">Punk 🖤</p>
     <p class="games">Games 🎮</p>
     <p class="tech">Oldschool Tech 💾</p>
+
+    <div class="music-box">
+      <h3>Music</h3>
+      <p>⚡ Slipknot<br>⚡ Pantera<br>⚡ Misfits<br>⚡ Nirvana<br>⚡ And a bunch moree</p>
+    </div>
   </div>
+
   <div class="box spotify-box">
     <iframe src="https://open.spotify.com/embed/playlist/16Q1EiWg3w8S9VcPnXQqwc?utm_source=generator" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
   </div>
@@ -201,4 +230,3 @@ a:hover {
 
 </body>
 </html>
-
