@@ -34,21 +34,8 @@
     font-size: 28px;
   }
 
-  header button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    padding: 8px 12px;
-    border: 2px solid hotpink;
-    background: rgba(0,0,0,0.7);
-    color: hotpink;
-    cursor: pointer;
-    border-radius: 5px;
-    font-family: 'Courier New', monospace;
-  }
-
-  header button:hover {
-    background: rgba(255,0,255,0.1);
+  header p {
+    margin: 5px 0 0 0;
   }
 
   .container {
@@ -60,38 +47,35 @@
     flex-wrap: wrap;
   }
 
-  /* Feed (center column) */
   .feed {
     flex: 2;
     min-width: 400px;
     max-width: 700px;
   }
 
-  .post, .admin-box {
+  .post {
     background: rgba(0,0,0,0.7);
     border: 2px solid #ff0000;
     box-shadow: 0 0 10px #ff0000;
     padding: 15px;
     margin-bottom: 20px;
-    border-radius: 8px;
   }
 
-  .post h3, .admin-box h3 {
+  .post h3 {
     color: #ff0000;
     text-shadow: 0 0 8px #ff0000;
     margin-top: 0;
   }
 
-  .post p, .admin-box p {
+  .post p {
     margin: 8px 0;
   }
 
-  .post .meta, .admin-box .meta {
+  .post .meta {
     font-size: 12px;
     color: #888;
   }
 
-  /* Sidebar */
   .sidebar {
     flex: 1;
     min-width: 250px;
@@ -104,7 +88,6 @@
     padding: 15px;
     margin-bottom: 20px;
     text-align: center;
-    border-radius: 8px;
   }
 
   .box h3 {
@@ -164,7 +147,21 @@
 <header>
   <h1>☠ WELCOME TO MYCHAT ☠</h1>
   <p style="color:#ff0000; text-shadow:0 0 6px hotpink;">Made by IamTheLight11</p>
-  <button onclick="window.location.href='login.html'">Login</button>
+  
+  <!-- Login Button -->
+  <button id="loginBtn" style="
+    position:absolute;
+    top:20px;
+    right:20px;
+    padding:8px 12px;
+    border:2px solid hotpink;
+    background: rgba(0,0,0,0.7);
+    color: hotpink;
+    cursor:pointer;
+    border-radius:5px;
+    font-family: 'Courier New', monospace;">
+    Login
+  </button>
 </header>
 
 <div class="page-buttons">
@@ -176,14 +173,6 @@
 <div class="container">
   <!-- Feed -->
   <div class="feed">
-
-    <!-- Admin Announcements -->
-    <div class="admin-box">
-      <h3>Admin Announcements</h3>
-      <!-- Empty for now -->
-    </div>
-
-    <!-- First Post -->
     <div class="post">
       <h3>First Post</h3>
       <p>No hate talk,</p>
@@ -192,13 +181,11 @@
       <p class="meta">Posted by <span style="color:hotpink;">IamTheLight11</span></p>
     </div>
 
-    <!-- Updates -->
     <div class="post">
       <h3>Updates</h3>
       <p>Working on a new chat system.</p>
       <p class="meta">Posted by <span style="color:hotpink;">Admin</span></p>
     </div>
-
   </div>
 
   <!-- Sidebar -->
@@ -215,6 +202,23 @@
 <div class="footer">
   “If the music’s too loud, you’re too old.” 🤘
 </div>
+
+<!-- Include storage.js for login system -->
+<script src="storage.js"></script>
+
+<!-- Login button script -->
+<script>
+  const loginBtn = document.getElementById('loginBtn');
+
+  loginBtn.addEventListener('click', () => {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (loggedInUser) {
+      alert('Already logged in');
+    } else {
+      window.location.href = 'login.html';
+    }
+  });
+</script>
 
 </body>
 </html>
