@@ -1,23 +1,18 @@
-// forumstorage.js
-// This script manages storing and retrieving forum posts
+// Check if there is already a posts array in localStorage
+let forumPosts = JSON.parse(localStorage.getItem('forumPosts')) || [];
 
-// Load posts from localStorage or initialize empty array
-function getForumPosts() {
-    let posts = localStorage.getItem("forumPosts");
-    if (posts) {
-        return JSON.parse(posts);
-    }
-    return [];
+// Function to add a new post
+function addPost(username, message) {
+  const post = {
+    username: username || "Anonymous", // anyone can post, default to Anonymous
+    message: message,
+    timestamp: new Date().toLocaleString()
+  };
+  forumPosts.push(post);
+  localStorage.setItem('forumPosts', JSON.stringify(forumPosts));
 }
 
-// Save posts array to localStorage
-function saveForumPosts(posts) {
-    localStorage.setItem("forumPosts", JSON.stringify(posts));
-}
-
-// Add a new post
-function addForumPost(username, content) {
-    let posts = getForumPosts();
-    posts.unshift({ username, content, timestamp: new Date().toLocaleString() });
-    saveForumPosts(posts);
+// Function to get all posts
+function getPosts() {
+  return forumPosts;
 }
