@@ -1,10 +1,10 @@
-// Check if there is already a posts array in localStorage
+// Shared forum posts storage
 let forumPosts = JSON.parse(localStorage.getItem('forumPosts')) || [];
 
-// Function to add a new post
-function addPost(username, message) {
+// Add a new post
+function addForumPost(username, message) {
   const post = {
-    username: username || "Anonymous", // anyone can post, default to Anonymous
+    username: username || "Anonymous",
     message: message,
     timestamp: new Date().toLocaleString()
   };
@@ -12,7 +12,7 @@ function addPost(username, message) {
   localStorage.setItem('forumPosts', JSON.stringify(forumPosts));
 }
 
-// Function to get all posts
-function getPosts() {
+// Get all posts
+function getForumPosts() {
   return forumPosts;
 }
