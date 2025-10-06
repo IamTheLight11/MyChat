@@ -6,7 +6,7 @@
 <title>Sign Up - MyChat</title>
 <style>
   body {
-    background-color: black;
+    background: black;
     color: #c0c0c0;
     font-family: 'Courier New', monospace;
     display: flex;
@@ -15,62 +15,66 @@
     height: 100vh;
     margin: 0;
   }
-  .signup-box {
-    background: rgba(0,0,0,0.8);
+  .container {
+    background: rgba(0,0,0,0.7);
     border: 2px solid #ff0000;
-    padding: 30px;
-    box-shadow: 0 0 10px #ff0000;
+    padding: 20px;
+    border-radius: 10px;
     text-align: center;
-    border-radius: 8px;
   }
-  h2 { color: #ff0000; text-shadow: 0 0 8px #ff0000; margin-bottom: 20px; }
-  input { padding: 10px; margin: 10px 0; width: 80%; border-radius:5px; border:1px solid #ff0000; background:black; color:#c0c0c0; }
-  button { padding:10px 20px; margin:5px; border:2px solid hotpink; background:rgba(0,0,0,0.7); color:hotpink; cursor:pointer; border-radius:5px; font-family:'Courier New', monospace; }
-  button:hover { background: rgba(255,0,255,0.1); }
-  .error { color:red; margin-top:10px; }
+  input {
+    padding: 8px;
+    margin: 5px 0;
+    width: 80%;
+    border-radius: 5px;
+    border: 1px solid #ff0000;
+    background: black;
+    color: #fff;
+  }
+  button {
+    padding: 8px 12px;
+    margin: 5px;
+    border: 2px solid hotpink;
+    background: rgba(0,0,0,0.7);
+    color: hotpink;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  button:hover {
+    background: rgba(255,0,255,0.1);
+  }
 </style>
 </head>
 <body>
 
-<div class="signup-box">
-  <h2>Create Account</h2>
+<div class="container">
+  <h2>Create an Account</h2>
   <input type="text" id="username" placeholder="Username"><br>
   <input type="password" id="password" placeholder="Password"><br>
   <button onclick="signup()">Sign Up</button>
-  <button onclick="cancelSignup()">Cancel</button>
-  <p class="error" id="errorMsg"></p>
+  <button onclick="window.location.href='login.html'">Back to Login</button>
 </div>
 
+<script src="storage.js"></script>
 <script>
-  function signup() {
-    const user = document.getElementById('username').value.trim();
-    const pass = document.getElementById('password').value;
-    const errorMsg = document.getElementById('errorMsg');
+function signup() {
+  const user = document.getElementById('username').value.trim();
+  const pass = document.getElementById('password').value;
 
-    if(!user || !pass) {
-      errorMsg.textContent = "Please fill out all fields.";
-      return;
-    }
-
-    // Load accounts
-    const accounts = JSON.parse(localStorage.getItem('accounts') || '[]');
-
-    // Check if username exists
-    if(accounts.find(acc => acc.username === user)) {
-      errorMsg.textContent = "Username already exists.";
-      return;
-    }
-
-    // Add account
-    accounts.push({username:user, password:pass});
-    localStorage.setItem('accounts', JSON.stringify(accounts));
-    localStorage.setItem('loggedInUser', user);
-    window.location.href = 'index.html';
+  if(!user || !pass){
+    alert("Enter username and password!");
+    return;
   }
 
-  function cancelSignup() {
-    window.location.href = 'login.html';
+  if(getUser(user)){
+    alert("Username already exists!");
+    return;
   }
+
+  saveUser(user, pass);
+  alert("Account created! You can now log in.");
+  window.location.href = "login.html";
+}
 </script>
 
 </body>
