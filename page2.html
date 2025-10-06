@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rambles</title>
+<title>Forum - MyChat</title>
+<link rel="stylesheet" href="styles.css"> <!-- optional if you want to reuse main styles -->
 <style>
   body {
     background-color: black;
@@ -18,40 +19,130 @@
     padding: 0;
   }
 
-  .content-box {
+  header {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 2px solid #ff0000;
+    box-shadow: 0 0 10px #ff0000;
+    background: rgba(0,0,0,0.7);
+  }
+
+  header h1 {
+    color: #ff0000;
+    text-shadow: 0 0 8px #ff0000;
+    margin: 0;
+  }
+
+  header button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 8px 12px;
+    border: 2px solid hotpink;
+    background: rgba(0,0,0,0.7);
+    color: hotpink;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+  }
+
+  .forum-container {
+    max-width: 700px;
+    margin: 20px auto;
+  }
+
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ff0000;
+    border-radius: 5px;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    resize: none;
+    font-family: 'Courier New', monospace;
+  }
+
+  button.post-btn {
+    margin-top: 10px;
+    padding: 8px 12px;
+    border: 2px solid hotpink;
+    background: rgba(0,0,0,0.7);
+    color: hotpink;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+  }
+
+  .post {
     background: rgba(0,0,0,0.7);
     border: 2px solid #ff0000;
     box-shadow: 0 0 10px #ff0000;
-    padding: 20px;
-    margin: 50px auto;
-    max-width: 600px;
-    text-align: center;
+    padding: 10px;
+    margin-top: 15px;
   }
 
-  h2 {
-    color: #ff0000;
-    text-shadow: 0 0 8px #ff0000;
-    margin-top: 0;
-  }
-
-  a {
+  .post .username {
     color: hotpink;
-    text-decoration: none;
     font-weight: bold;
   }
-  a:hover {
-    text-shadow: 0 0 6px hotpink;
+
+  .post .timestamp {
+    font-size: 12px;
+    color: #888;
   }
 </style>
 </head>
 <body>
 
-<div class="content-box">
-  <h2>Rambles</h2>
-  <p>This is the page where (for now) only I can post stuff,<br>
-     I'm still working on a commenting system.</p>
-  <p><a href="index.html">Back to Home</a></p>
+<header>
+  <h1>Forum - MyChat</h1>
+  <button onclick="window.location.href='index.html'">Home</button>
+</header>
+
+<div class="forum-container">
+  <textarea id="postContent" rows="4" placeholder="Write something..."></textarea>
+  <button class="post-btn" onclick="submitPost()">Post</button>
+
+  <div id="postsContainer"></div>
 </div>
+
+<script src="storage.js"></script> <!-- for login system, to know username -->
+<script src="forumstorage.js"></script>
+<script>
+  // Load existing posts
+  function displayPosts() {
+    const postsContainer = document.getElementById("postsContainer");
+    postsContainer.innerHTML = "";
+    const posts = getForumPosts();
+    posts.forEach(post => {
+      const div = document.createElement("div");
+      div.className = "post";
+      div.innerHTML = `<p class="username">${post.username}</p>
+                       <p>${post.content}</p>
+                       <p class="timestamp">${post.timestamp}</p>`;
+      postsContainer.appendChild(div);
+    });
+  }
+
+  displayPosts();
+
+  // Submit a new post
+  function submitPost() {
+    const content = document.getElementById("postContent").value.trim();
+    if (!content) return alert("Cannot post empty content!");
+
+    // Get username from storage.js
+    const username = localStorage.getItem("loggedInUser");
+    if (!username) {
+      return alert("You must be logged in to post!");
+    }
+
+    addForumPost(username, content);
+    document.getElementById("postContent").value = "";
+    displayPosts();
+    alert("Post submitted successfully!");
+  }
+</script>
 
 </body>
 </html>
