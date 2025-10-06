@@ -1,105 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Forum</title>
-<style>
-  body {
-    background-color: black;
-    color: #c0c0c0;
-    font-family: 'Courier New', monospace;
-    margin: 0;
-    padding: 0;
-    background-image: url("https://i.pinimg.com/originals/11/c2/38/11c238c51c94fbf822ae0fc6acc88c58.gif");
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-  }
-  .container {
-    max-width: 700px;
-    margin: 20px auto;
-    padding: 10px;
-  }
-  .post {
-    background: rgba(0,0,0,0.7);
-    border: 2px solid #ff0000;
-    box-shadow: 0 0 10px #ff0000;
-    padding: 10px;
-    margin-bottom: 15px;
-  }
-  .post .meta {
-    font-size: 12px;
-    color: #888;
-  }
-  textarea {
-    width: 100%;
-    height: 60px;
-    margin-bottom: 10px;
-    background: black;
-    color: #c0c0c0;
-    border: 2px solid #ff0000;
-    padding: 5px;
-    font-family: 'Courier New', monospace;
-  }
-  button {
-    padding: 8px 12px;
-    border: 2px solid hotpink;
-    background: rgba(0,0,0,0.7);
-    color: hotpink;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
-    font-family: 'Courier New', monospace;
-  }
-  button:hover {
-    background: rgba(255,0,255,0.1);
-  }
-</style>
-</head>
-<body>
-
-<div class="container">
-  <h2 style="color:#ff0000; text-shadow:0 0 6px #ff0000;">Forum</h2>
-
-  <!-- Post submission -->
-  <textarea id="messageInput" placeholder="Write your post here..."></textarea>
-  <button onclick="submitPost()">Post</button>
-
-  <!-- Posts will appear here -->
-  <div id="postsContainer"></div>
-</div>
-
+<!-- somewhere near the bottom of your page2.html, inside a <script> -->
 <script src="forumstorage.js"></script>
 <script>
-  function submitPost() {
-    const message = document.getElementById('messageInput').value.trim();
+  const postsContainer = document.getElementById('postsContainer'); // your existing container for posts
+
+  function submitForumPost() {
+    const messageInput = document.getElementById('messageInput'); // your existing textarea
+    const message = messageInput.value.trim();
     if (!message) {
-      alert("Please write something before posting!");
+      alert("Please write something!");
       return;
     }
-    addPost("Anonymous", message); // default to Anonymous for all users
-    document.getElementById('messageInput').value = "";
-    renderPosts();
+    addForumPost("Anonymous", message); // anyone can post
+    messageInput.value = "";
+    renderForumPosts();
     alert("Post added successfully!");
   }
 
-  function renderPosts() {
-    const postsDiv = document.getElementById('postsContainer');
-    postsDiv.innerHTML = "";
-    const posts = getPosts();
+  function renderForumPosts() {
+    postsContainer.innerHTML = "";
+    const posts = getForumPosts();
     posts.forEach(post => {
       const postDiv = document.createElement('div');
-      postDiv.className = "post";
+      postDiv.className = "post"; // your existing CSS class
       postDiv.innerHTML = `<p>${post.message}</p>
                            <p class="meta">Posted by <span style="color:hotpink;">${post.username}</span> at ${post.timestamp}</p>`;
-      postsDiv.appendChild(postDiv);
+      postsContainer.appendChild(postDiv);
     });
   }
 
   // Render posts on page load
-  renderPosts();
+  renderForumPosts();
 </script>
-
-</body>
-</html>
