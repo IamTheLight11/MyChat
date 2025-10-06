@@ -3,185 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Forum</title>
-<style>
-  body {
-    background-color: black;
-    background-image: url("https://i.pinimg.com/originals/11/c2/38/11c238c51c94fbf822ae0fc6acc88c58.gif");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    font-family: 'Courier New', monospace;
-    color: #c0c0c0;
-    margin: 0;
-    padding: 0;
-  }
-
-  header {
-    text-align: center;
-    padding: 20px;
-    border-bottom: 2px solid #ff0000;
-    box-shadow: 0 0 10px #ff0000;
-    background: rgba(0,0,0,0.7);
-    position: relative;
-  }
-
-  header h1 {
-    color: #ff0000;
-    text-shadow: 0 0 8px #ff0000;
-    margin: 0;
-    font-size: 28px;
-  }
-
-  header button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    padding: 8px 12px;
-    border: 2px solid hotpink;
-    background: rgba(0,0,0,0.7);
-    color: hotpink;
-    cursor: pointer;
-    border-radius: 5px;
-    font-family: 'Courier New', monospace;
-  }
-
-  .container {
-    display: flex;
-    justify-content: center;
-    margin: 20px;
-  }
-
-  .feed {
-    width: 100%;
-    max-width: 700px;
-  }
-
-  .post {
-    background: rgba(0,0,0,0.7);
-    border: 2px solid #ff0000;
-    box-shadow: 0 0 10px #ff0000;
-    padding: 15px;
-    margin-bottom: 20px;
-  }
-
-  .post p {
-    margin: 8px 0;
-  }
-
-  .post .meta {
-    font-size: 12px;
-    color: #888;
-  }
-
-  textarea {
-    width: 100%;
-    height: 60px;
-    margin-bottom: 10px;
-    background: rgba(0,0,0,0.7);
-    color: #fff;
-    border: 2px solid hotpink;
-    border-radius: 5px;
-    font-family: 'Courier New', monospace;
-    padding: 5px;
-  }
-
-  button.post-btn {
-    padding: 8px 12px;
-    border: 2px solid hotpink;
-    background: rgba(0,0,0,0.7);
-    color: hotpink;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
-    font-family: 'Courier New', monospace;
-  }
-
-  button.post-btn:hover {
-    background: rgba(255,0,255,0.1);
-  }
-
-  .footer {
-    text-align: center;
-    font-size: 12px;
-    color: #999;
-    margin: 20px 0;
-  }
-</style>
+<title>MyChat Forum</title>
+<link rel="stylesheet" href="style.css">
+<script src="forumstorage.js" defer></script>
 </head>
 <body>
 
 <header>
-  <h1>☠ Forum ☠</h1>
-  <button onclick="window.location.href='index.html'">Home</button>
+    <h1>☠ MyChat Forum ☠</h1>
+    <p style="color:#ff0000; text-shadow:0 0 6px hotpink;">Made by IamTheLight11</p>
+    <button style="
+        position:absolute;
+        top:20px;
+        right:20px;
+        padding:8px 12px;
+        border:2px solid hotpink;
+        background: rgba(0,0,0,0.7);
+        color: hotpink;
+        cursor:pointer;
+        border-radius:5px;
+        font-family: 'Courier New', monospace;"
+        onclick="window.location.href='login.html'">Login</button>
 </header>
 
 <div class="container">
-  <div class="feed">
-    <!-- New Post Area -->
-    <div class="post">
-      <h3>Create a Post</h3>
-      <textarea id="messageInput" placeholder="Write something..."></textarea>
-      <button class="post-btn" onclick="submitForumPost()">Post</button>
+
+    <!-- Forum Feed -->
+    <div class="feed">
+        <div id="forum-feed"></div>
+
+        <!-- Posting area -->
+        <textarea id="post-content" placeholder="Write your post here..." style="width:100%; height:80px; margin-top:10px;"></textarea>
+        <button style="margin-top:5px;" onclick="addForumPost(document.getElementById('post-content').value)">
+            Post
+        </button>
     </div>
 
-    <!-- Posts Container -->
-    <div id="postsContainer"></div>
-  </div>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="box">
+            <h3>Forum Rules</h3>
+            <p>Be respectful. Keep it SFW. No hate speech.</p>
+        </div>
+    </div>
+
 </div>
 
 <div class="footer">
-  “If the music’s too loud, you’re too old.” 🤘
+    “If the music’s too loud, you’re too old.” 🤘
 </div>
-
-<script>
-// Forum storage
-let forumPosts = JSON.parse(localStorage.getItem('forumPosts')) || [];
-
-function addForumPost(username, message) {
-  const post = {
-    username: username || "Anonymous",
-    message: message,
-    timestamp: new Date().toLocaleString()
-  };
-  forumPosts.push(post);
-  localStorage.setItem('forumPosts', JSON.stringify(forumPosts));
-}
-
-function getForumPosts() {
-  return forumPosts;
-}
-
-function submitForumPost() {
-  const messageInput = document.getElementById('messageInput');
-  const message = messageInput.value.trim();
-  if (!message) {
-    alert("Please write something!");
-    return;
-  }
-  addForumPost("Anonymous", message);
-  messageInput.value = "";
-  renderForumPosts();
-  alert("Post added successfully!");
-}
-
-function renderForumPosts() {
-  const postsContainer = document.getElementById('postsContainer');
-  postsContainer.innerHTML = "";
-  const posts = getForumPosts();
-  posts.forEach(post => {
-    const postDiv = document.createElement('div');
-    postDiv.className = "post";
-    postDiv.innerHTML = `<p>${post.message}</p>
-                         <p class="meta">Posted by <span style="color:hotpink;">${post.username}</span> at ${post.timestamp}</p>`;
-    postsContainer.appendChild(postDiv);
-  });
-}
-
-// Render posts on page load
-renderForumPosts();
-</script>
 
 </body>
 </html>
