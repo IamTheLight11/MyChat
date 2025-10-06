@@ -18,53 +18,22 @@
     padding: 0;
   }
 
-  .neon-text {
+  header {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 2px solid #ff0000;
+    box-shadow: 0 0 10px #ff0000;
+    background: rgba(0,0,0,0.7);
+  }
+
+  header h1 {
     color: #ff0000;
     text-shadow: 0 0 8px #ff0000;
     margin: 0;
+    font-size: 28px;
   }
 
-  .top-flex {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-
-  .top-flex img {
-    width: 80px;
-    height: 80px;
-    border: 2px solid #ff0000;
-    border-radius: 8px;
-    flex-shrink: 0;
-    box-shadow: 0 0 10px #ff0000;
-  }
-
-  .about-box {
-    background: rgba(0,0,0,0.7);
-    border: 2px solid #ff0000;
-    box-shadow: 0 0 10px #ff0000;
-    padding: 20px;
-    margin: 0 20px;
-    text-align: center;
-  }
-
-  .about-box h2 {
-    color: #ff0000;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 0 0 8px #ff0000;
-    margin-top: 0;
-  }
-
-  .about-box p {
-    font-size: 14px;
-    line-height: 1.6;
-    margin: 5px 0;
-  }
-
-  .bottom-flex {
+  .container {
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -73,13 +42,48 @@
     flex-wrap: wrap;
   }
 
+  /* Feed (center column) */
+  .feed {
+    flex: 2;
+    min-width: 400px;
+    max-width: 700px;
+  }
+
+  .post {
+    background: rgba(0,0,0,0.7);
+    border: 2px solid #ff0000;
+    box-shadow: 0 0 10px #ff0000;
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  .post h3 {
+    color: #ff0000;
+    text-shadow: 0 0 8px #ff0000;
+    margin-top: 0;
+  }
+
+  .post p {
+    margin: 8px 0;
+  }
+
+  .post .meta {
+    font-size: 12px;
+    color: #888;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    flex: 1;
+    min-width: 250px;
+  }
+
   .box {
     background: rgba(0,0,0,0.7);
     border: 2px solid #ff0000;
     box-shadow: 0 0 10px #ff0000;
     padding: 15px;
-    width: 250px;
-    min-width: 250px;
+    margin-bottom: 20px;
     text-align: center;
   }
 
@@ -88,22 +92,19 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     text-shadow: 0 0 8px #ff0000;
-    margin-top: 0;
   }
 
-  .interests p {
-    text-shadow: 0 0 6px;
-    font-weight: bold;
+  iframe {
+    border-radius: 12px;
+    width: 100%;
+    height: 352px;
   }
-  .interests .metal { color: #ff00ff; text-shadow: 0 0 6px hotpink; }
-  .interests .punk { color: #00ffff; text-shadow: 0 0 6px cyan; }
-  .interests .games { color: #ffff00; text-shadow: 0 0 6px yellow; }
-  .interests .tech { color: #ff9900; text-shadow: 0 0 6px orange; }
 
   a {
     color: hotpink;
     text-decoration: none;
   }
+
   a:hover {
     color: white;
     text-shadow: 0 0 6px hotpink;
@@ -113,7 +114,12 @@
     text-align: center;
     font-size: 12px;
     color: #999;
-    margin-top: 20px;
+    margin: 20px 0;
+  }
+
+  .page-buttons {
+    text-align: center;
+    margin-bottom: 20px;
   }
 
   .page-buttons button {
@@ -130,87 +136,62 @@
   .page-buttons button:hover {
     background: rgba(255,0,255,0.1);
   }
-
-  .spotify-box iframe {
-    border-radius: 12px;
-    width: 100%;
-    height: 352px;
-  }
 </style>
 </head>
 <body>
 
-<!-- Top images and text -->
-<div class="top-flex">
-  <img src="https://ontarioflagandpole.com/wp-content/uploads/2017/10/poland-eagle.jpg" alt="Polish Eagle">
-  <p class="neon-text">ZWYCIĘSTWO POLSKI ✊✊</p>
-  <img src="https://preview.redd.it/qfcr91y57lh51.jpg?width=640&crop=smart&auto=webp&s=d4be368fa38cc2d79cfaf4b8b06562b93ecdb049" alt="Joe Working Man">
-</div>
+<header>
+  <h1>☠ WELCOME TO MYCHAT ☠</h1>
+  <p style="color:#ff0000; text-shadow:0 0 6px hotpink;">Made by IamTheLight11</p>
+</header>
 
-<!-- About Me Box -->
-<div class="about-box">
-  <h2>☠ WELCOME TO MYCHAT ☠</h2>
-  <p><b>est. 2025</b></p>
-  <p>born in 2011</p>
-  <p>True till death.<br>
-     <i>Keep my friends close, keep my enemies closer.</i><br>
-     <i>Living loud, living proud.</i><br>
-     <span style="color: #ff9900; text-shadow: 0 0 6px #ff9900;">// Punk • Metal • Chaos //</span></p>
-  <div style="margin-top: 20px; border-top: 1px dashed #666; padding-top: 10px; text-align: center;">
-    <b>🖕 ⋆♱✮♱⋆ 🖤</b>
-  </div>
-  <p style="margin-top:10px; color:#ff0000; text-shadow:0 0 6px hotpink;">Made by IamTheLight11</p>
-</div>
-
-<!-- Page Buttons (above bottom boxes) -->
-<div class="bottom-flex page-buttons">
+<div class="page-buttons">
   <button onclick="window.location.href='page1.html'">Vids/Pics</button>
   <button onclick="window.location.href='page2.html'">Rambles</button>
   <button onclick="window.location.href='page3.html'">Chat</button>
 </div>
 
-<!-- Bottom Flex: Interests + YouTube + Spotify -->
-<div class="bottom-flex">
+<div class="container">
+  <!-- Feed -->
+  <div class="feed">
+    <div class="post">
+      <h3>🔥 First Post</h3>
+      <p>Welcome to MyChat — a punk/metal-styled place for chaos, fun, and real talk 🤘</p>
+      <p class="meta">Posted by <span style="color:hotpink;">IamTheLight11</span> · Just now</p>
+    </div>
 
-  <!-- Interests -->
-  <div class="box interests">
-    <h3>⚡ Interests ⚡</h3>
-    <p class="metal">Metal 🤘</p>
-    <p class="punk">Punk 🖤</p>
-    <p class="games">Games 🎮</p>
-    <p class="tech">Oldschool Tech 💾</p>
+    <div class="post">
+      <h3>💀 Updates</h3>
+      <p>Working on a new chat system and maybe profile pages soon!</p>
+      <p class="meta">Posted by <span style="color:hotpink;">Admin</span> · 1 hour ago</p>
+    </div>
 
-    <!-- Music Box -->
-    <div style="background-color: black; border: 2px solid hotpink; padding: 10px; margin-top: 10px;">
-      <h3 style="color: #ff0000; text-transform: uppercase; text-shadow: 0 0 8px #ff0000; margin:0 0 5px 0;">Music</h3>
-      <p style="color: #ff00ff; text-shadow: 0 0 6px hotpink; margin:0;">
-        ⚡ Slipknot<br>
-        ⚡ Pantera<br>
-        ⚡ Misfits<br>
-        ⚡ Nirvana<br>
-        ⚡ And a bunch more
-      </p>
+    <div class="post">
+      <h3>🎶 Music Drop</h3>
+      <p>Been looping Slipknot all night. What’s your go-to metal band lately?</p>
+      <p class="meta">Posted by <span style="color:hotpink;">GuestUser01</span> · 2 hours ago</p>
     </div>
   </div>
 
-  <!-- Fav YouTuber Button -->
-  <div class="box">
-    <h3>Fav Youtuber rn</h3>
-    <a href="https://www.youtube.com/@ElectroBOOM" target="_blank" style="color: hotpink; text-decoration:none;">Go to channel</a>
-  </div>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="box">
+      <h3>Fav YouTuber</h3>
+      <a href="https://www.youtube.com/@ElectroBOOM" target="_blank">ElectroBOOM ⚡</a>
+    </div>
 
-  <!-- Spotify -->
-  <div class="box spotify-box">
-    <iframe src="https://open.spotify.com/embed/playlist/16Q1EiWg3w8S9VcPnXQqwc?utm_source=generator" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <div class="box">
+      <h3>Spotify</h3>
+      <iframe src="https://open.spotify.com/embed/playlist/16Q1EiWg3w8S9VcPnXQqwc?utm_source=generator"
+        frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"></iframe>
+    </div>
   </div>
 </div>
 
-<!-- Footer -->
 <div class="footer">
   “If the music’s too loud, you’re too old.” 🤘
 </div>
 
 </body>
 </html>
-
-
