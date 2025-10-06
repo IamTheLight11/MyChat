@@ -24,6 +24,7 @@
     border-bottom: 2px solid #ff0000;
     box-shadow: 0 0 10px #ff0000;
     background: rgba(0,0,0,0.7);
+    position: relative;
   }
 
   header h1 {
@@ -31,6 +32,23 @@
     text-shadow: 0 0 8px #ff0000;
     margin: 0;
     font-size: 28px;
+  }
+
+  header button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 8px 12px;
+    border: 2px solid hotpink;
+    background: rgba(0,0,0,0.7);
+    color: hotpink;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+  }
+
+  header button:hover {
+    background: rgba(255,0,255,0.1);
   }
 
   .container {
@@ -49,25 +67,26 @@
     max-width: 700px;
   }
 
-  .post {
+  .post, .admin-box {
     background: rgba(0,0,0,0.7);
     border: 2px solid #ff0000;
     box-shadow: 0 0 10px #ff0000;
     padding: 15px;
     margin-bottom: 20px;
+    border-radius: 8px;
   }
 
-  .post h3 {
+  .post h3, .admin-box h3 {
     color: #ff0000;
     text-shadow: 0 0 8px #ff0000;
     margin-top: 0;
   }
 
-  .post p {
+  .post p, .admin-box p {
     margin: 8px 0;
   }
 
-  .post .meta {
+  .post .meta, .admin-box .meta {
     font-size: 12px;
     color: #888;
   }
@@ -85,6 +104,7 @@
     padding: 15px;
     margin-bottom: 20px;
     text-align: center;
+    border-radius: 8px;
   }
 
   .box h3 {
@@ -144,20 +164,8 @@
 <header>
   <h1>☠ WELCOME TO MYCHAT ☠</h1>
   <p style="color:#ff0000; text-shadow:0 0 6px hotpink;">Made by IamTheLight11</p>
-  <button style="
-    position:absolute;
-    top:20px;
-    right:20px;
-    padding:8px 12px;
-    border:2px solid hotpink;
-    background: rgba(0,0,0,0.7);
-    color: hotpink;
-    cursor:pointer;
-    border-radius:5px;
-    font-family: 'Courier New', monospace;"
-    onclick="window.location.href='login.html'">Login</button>
+  <button onclick="window.location.href='login.html'">Login</button>
 </header>
-
 
 <div class="page-buttons">
   <button onclick="window.location.href='page1.html'">Vids/Pics</button>
@@ -168,6 +176,14 @@
 <div class="container">
   <!-- Feed -->
   <div class="feed">
+
+    <!-- Admin Announcements -->
+    <div class="admin-box">
+      <h3>Admin Announcements</h3>
+      <!-- Empty for now -->
+    </div>
+
+    <!-- First Post -->
     <div class="post">
       <h3>First Post</h3>
       <p>No hate talk,</p>
@@ -176,11 +192,13 @@
       <p class="meta">Posted by <span style="color:hotpink;">IamTheLight11</span></p>
     </div>
 
+    <!-- Updates -->
     <div class="post">
       <h3>Updates</h3>
       <p>Working on a new chat system.</p>
       <p class="meta">Posted by <span style="color:hotpink;">Admin</span></p>
     </div>
+
   </div>
 
   <!-- Sidebar -->
@@ -200,5 +218,3 @@
 
 </body>
 </html>
-
-
